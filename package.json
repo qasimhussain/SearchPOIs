@@ -25,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/qasimhussain/SearchPOIs/issues"
   },
-  "homepage": "https://github.com/qasimhussain/SearchPOIs#readme"
+  "homepage": "https://github.com/qasimhussain/SearchPOIs#readme",
+  "devDependencies": {
+    "jsdoc": "^3.5.5"
+  }
 }
