@@ -1,0 +1,28 @@
+{
+  "name": "searchpoi",
+  "version": "1.0.0",
+  "description": "An http based REST API that allows to search in a collection of POIs",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "koa": "^2.5.1",
+    "koa-compress": "^3.0.0",
+    "koa-logger": "^3.2.0",
+    "koa-route": "^3.2.0",
+    "koa-static": "^5.0.0",
+    "latlon-geohash": "^1.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qasimhussain/SearchPOIs.git"
+  },
+  "author": "qasim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qasimhussain/SearchPOIs/issues"
+  },
+  "homepage": "https://github.com/qasimhussain/SearchPOIs#readme"
+}
