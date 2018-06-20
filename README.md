@@ -8,3 +8,15 @@ The first thing that I did was to get data by using an API(http://tour-pedia.org
 In order to cater POIs of different types:
 I will take category in the request along with the longitude,latitude and proximity and then can search in that particular category.
 This way the tree approach that I am using can be used to load only the structure of that particular category.
+
+# Setup
+npm install
+
+node app.js
+
+#Examples
+http://127.0.0.1:3000/all
+- Displays all possible POIs
+
+http://127.0.0.1:3000/search?lng=13.404575&lat=52.523055&proximity=5
+- Searches the provided location parameters with those of POIs, along with proximity of the bounding box.
