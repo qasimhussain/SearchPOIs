@@ -21,7 +21,7 @@ var tree = new Tree();
 
 // then prepare the data using 
 for (var i = 0; i < jsonContent.length; i++){
-	tree.set(calculateHash(jsonContent[i].lat,jsonContent[i].lng),jsonContent);
+	tree.set(calculateHash(jsonContent[i].lng,jsonContent[i].lat),jsonContent[i],12);
 }
 
 app.use(route.get('/all', (ctx, next) => {
@@ -30,23 +30,26 @@ app.use(route.get('/all', (ctx, next) => {
   };
 }));
 
-app.use(route.get('/hash', (ctx, next) => {
-	var srcLocationHash = Geohash.encode(ctx.query.lng, ctx.query.lat); 
+app.use(route.get('/search', (ctx, next) => {
+	var srcLocationHash = calculateHash(ctx.query.lng, ctx.query.lat,ctx.query.proximity); 
+	var result = matchPrefix(srcLocationHash);
+	if (result.length == 0 )
+		result = "No point of interest locations nearby";
   ctx.body = {
 
-    "hash": srcLocationHash,
-	"list": matchNeighbours(srcLocationHash),
+	"nearby": result,
   };
+
 }));
 
-function matchNeighbours(srcLocationHash) { 
+function matchPrefix(srcLocationHash) { 
 	
    return tree.get(srcLocationHash); 
 } 
 
-function calculateHash(lng,lat) { 
-	
-   return Geohash.encode(lng,lat); 
+function calculateHash(lng,lat,proximity) { 
+	var hash = Geohash.encode(lng,lat,proximity);
+	return hash; 
 } 
 
 // Serve static files
