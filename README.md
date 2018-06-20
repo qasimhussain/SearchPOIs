@@ -14,7 +14,7 @@ npm install
 
 node app.js
 
-#Examples
+# Examples
 http://127.0.0.1:3000/all
 - Displays all possible POIs
 
